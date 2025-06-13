@@ -79,7 +79,7 @@ The goal is familiarize oneself with the much needed practical knowledge in beco
   <figcaption>Admin Login with Username and Password Input.</figcaption>
 </figure>
 <figure>
-  <img src="images/sc3.png" alt="Admin Panel">
+  <img src="images/sc3_.png" alt="Admin Panel">
   <figcaption>Admin Panel.</figcaption>
 </figure>
 
