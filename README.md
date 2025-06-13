@@ -93,7 +93,7 @@ The goal is familiarize oneself with the much needed practical knowledge in beco
 - **Blog**: Read blog posts.
 - **Contact**: Send a message through the contact form.
 <figure>
-  <img src="images/sc4.png" alt="Public Interface">
+  <img src="images/sc4_.png" alt="Public Interface">
   <figcaption>Public Interface.</figcaption>
 </figure>
 
