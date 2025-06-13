@@ -1,4 +1,3 @@
-// pages/about.js
 'use client';
 import { useState, useEffect, use } from 'react';
 import MainLayout from '@/components/layout';

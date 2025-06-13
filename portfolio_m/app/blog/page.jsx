@@ -1,4 +1,3 @@
-// pages/blog.js
 "use client";
 import { useState, useEffect } from "react";
 import MainLayout from "@/components/layout";
@@ -25,7 +24,7 @@ export default function Blog() {
                   key={index}
                   className="flex flex-col h-full bg-[var(--card-bg-color)] border border-[var(--border-color)]"
                   title={blog.title}
-                  bordered={false}
+                  variant={false}
                 >
                   {blog.image && (
                     <img

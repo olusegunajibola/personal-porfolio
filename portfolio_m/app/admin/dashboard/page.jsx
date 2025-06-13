@@ -221,19 +221,19 @@ export default function Dashboard() {
             <div className="mb-8">
               <Row gutter={16}>
                 <Col span={8}>
-                  <Card bordered={false} className="bg-blue-50 dark:bg-gray-800">
+                  <Card variant={false} className="bg-blue-50 dark:bg-gray-800">
                     <p className="text-gray-500 dark:text-gray-300">Total Blogs</p>
                     <p className="text-3xl font-bold">{blogs.length}</p>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card bordered={false} className="bg-green-50 dark:bg-gray-800">
+                  <Card variant={false} className="bg-green-50 dark:bg-gray-800">
                     <p className="text-gray-500 dark:text-gray-300">Total Messages</p>
                     <p className="text-3xl font-bold">{messages.length}</p>
                   </Card>
                 </Col>
                 <Col span={8}>
-                  <Card bordered={false} className="bg-purple-50 dark:bg-gray-800">
+                  <Card variant={false} className="bg-purple-50 dark:bg-gray-800">
                     <p className="text-gray-500 dark:text-gray-300">Last Updated</p>
                     <p className="text-3xl font-bold">{blogs.length > 0 ? moment(blogs[0].date).fromNow() : 'N/A'}</p>
                   </Card>

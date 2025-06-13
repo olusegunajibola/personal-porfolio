@@ -4,10 +4,15 @@ import { BulbOutlined } from '@ant-design/icons';
 
 export default function MainLayout({ children }) {
   const [darkMode, setDarkMode] = useState(false);
+  const [currentPath, setCurrentPath] = useState('');
 
   useEffect(() => {
     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(savedDarkMode);
+
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname);
+    }
   }, []);
 
   useEffect(() => {
@@ -30,8 +35,16 @@ export default function MainLayout({ children }) {
       <header className="bg-gray-900 text-white px-8 py-4 flex justify-between items-center shadow-md">
         <nav className="flex space-x-6">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-yellow-400 transition">
-              {item.label}
+            <Link key={item.href} href={item.href} passHref>
+              <span
+                className={`cursor-pointer transition hover:text-yellow-400 ${
+                  currentPath === item.href
+                    ? 'text-yellow-400 underline underline-offset-4'
+                    : ''
+                }`}
+              >
+                {item.label}
+              </span>
             </Link>
           ))}
         </nav>
@@ -45,9 +58,7 @@ export default function MainLayout({ children }) {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 px-12 py-8">
-        {children}
-      </main>
+      <main className="flex-1 px-12 py-8">{children}</main>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white text-center py-4">
@@ -61,8 +72,11 @@ export default function MainLayout({ children }) {
           <a href="mailto:olusegun.ajibola@aims-cameroon.org">
             <img src="/images/gmail.svg.png" alt="Gmail" className="w-6 h-6 object-contain" />
           </a>
+          <a href="https://github.com/olusegunajibola">
+            <img src="/images/github-mark-white.png" alt="GitHub" className="w-6 h-6 object-contain" />
+          </a>
         </div>
-        © Copyright, Olusegun 2025
+        © 2025 Olusegun E.A.
       </footer>
     </div>
   );

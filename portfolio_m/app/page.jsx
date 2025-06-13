@@ -1,162 +1,16 @@
-// 'use client'
-// import { useEffect, useState } from 'react';
-// import { Form, Input, Button, message, Card, Row, Col, Switch } from 'antd';
-// import { BulbOutlined } from '@ant-design/icons';
-
-// const { TextArea } = Input;
-
-// export default function Home() {
-//   const [profile, setProfile] = useState({});
-//   const [blogs, setBlogs] = useState([]);
-//   const [form] = Form.useForm();
-//   const [darkMode, setDarkMode] = useState(false);
-
-//   useEffect(() => {
-//     const savedProfile = localStorage.getItem('profile');
-//     const savedBlogs = localStorage.getItem('blogs');
-//     const savedDarkMode = localStorage.getItem('darkMode') === 'true';
-
-//     if (savedProfile) setProfile(JSON.parse(savedProfile));
-//     if (savedBlogs) setBlogs(JSON.parse(savedBlogs));
-//     setDarkMode(savedDarkMode);
-//   }, []);
-
-//   useEffect(() => {
-//     if (darkMode) {
-//       document.documentElement.classList.add('dark-mode');
-//     } else {
-//       document.documentElement.classList.remove('dark-mode');
-//     }
-//     localStorage.setItem('darkMode', darkMode);
-//   }, [darkMode]);
-
-//   const toggleDarkMode = () => {
-//     setDarkMode(!darkMode);
-//   };
-
-//   const onFinish = (values) => {
-//     const messages = JSON.parse(localStorage.getItem('messages')) || [];
-//     const newMessage = {
-//       ...values,
-//       date: new Date().toISOString()
-//     };
-//     messages.push(newMessage);
-//     localStorage.setItem('messages', JSON.stringify(messages));
-//     message.success('Message sent successfully');
-//     form.resetFields();
-//   };
-
-//   return (
-//     <div className="container mx-auto p-4" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
-//       <div className="flex justify-end mb-4">
-//         <Switch
-//           checkedChildren={<BulbOutlined />}
-//           unCheckedChildren={<BulbOutlined />}
-//           checked={darkMode}
-//           onChange={toggleDarkMode}
-//         />
-//       </div>
-
-//       <section id="about" className="my-8">
-//         <h2 className="text-3xl font-bold text-center mb-6">About Me</h2>
-//         <div className="flex flex-col items-center">
-//           {profile.profileImage && (
-//             <img
-//               src={profile.profileImage}
-//               alt="Profile"
-//               className="w-32 h-32 rounded-full mb-4 object-cover"
-//             />
-//           )}
-//           <h3 className="text-xl font-semibold">{profile.fullName}</h3>
-//           <p className="text-gray-600 dark:text-gray-300">{profile.email}</p>
-//           <p className="text-gray-600 dark:text-gray-300">{profile.phone}</p>
-//           <p className="text-gray-600 dark:text-gray-300">{profile.country}</p>
-//           <p className="mt-4 text-center max-w-lg">{profile.about}</p>
-//         </div>
-//       </section>
-
-//       <section id="blog" className="my-8">
-//         <h2 className="text-3xl font-bold text-center mb-6">Blog</h2>
-//         <Row gutter={[16, 16]}>
-//           {blogs.map((blog, index) => (
-//             <Col key={index} xs={24} sm={12} lg={8}>
-//               <Card title={blog.title} className="h-full" style={{ backgroundColor: 'var(--card-bg-color)', borderColor: 'var(--border-color)' }}>
-//                 {blog.image && (
-//                   <img
-//                     src={blog.image}
-//                     alt={blog.title}
-//                     className="w-full h-48 object-cover mb-4"
-//                   />
-//                 )}
-//                 <p>{blog.content}</p>
-//                 <p className="text-sm text-gray-500 dark:text-gray-300 mt-2">{blog.date}</p>
-//               </Card>
-//             </Col>
-//           ))}
-//         </Row>
-//       </section>
-
-//       <section id="contact" className="my-8">
-//         <h2 className="text-3xl font-bold text-center mb-6">Contact Us</h2>
-//         <Form
-//           form={form}
-//           onFinish={onFinish}
-//           layout="vertical"
-//           className="max-w-lg mx-auto"
-//         >
-//           <Form.Item
-//             name="name"
-//             label="Name"
-//             rules={[{ required: true, message: 'Please input your name!' }]}
-//           >
-//             <Input />
-//           </Form.Item>
-//           <Form.Item
-//             name="email"
-//             label="Email"
-//             rules={[{ required: true, message: 'Please input your email!' }]}
-//           >
-//             <Input type="email" />
-//           </Form.Item>
-//           <Form.Item
-//             name="subject"
-//             label="Subject"
-//             rules={[{ required: true, message: 'Please input the subject!' }]}
-//           >
-//             <Input />
-//           </Form.Item>
-//           <Form.Item
-//             name="body"
-//             label="Message"
-//             rules={[{ required: true, message: 'Please input your message!' }]}
-//           >
-//             <TextArea rows={4} />
-//           </Form.Item>
-//           <Form.Item>
-//             <Button type="primary" htmlType="submit" className="w-full">
-//               Submit
-//             </Button>
-//           </Form.Item>
-//         </Form>
-//       </section>
-//     </div>
-//   );
-// }
-
-// pages/index.js
-'use client';	
-import { useState, useEffect } from 'react';
-import MainLayout from '@/components/layout';
-import { Card, Row, Col } from 'antd';
-import moment from 'moment';
+"use client";
+import { useState, useEffect } from "react";
+import MainLayout from "@/components/layout";
+import { Card, Row, Col } from "antd";
+import moment from "moment";
 
 export default function Home() {
   const [blogs, setBlogs] = useState([]);
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const savedBlogs = localStorage.getItem('blogs');
-    const savedMessages = localStorage.getItem('messages');
+    const savedBlogs = localStorage.getItem("blogs");
+    const savedMessages = localStorage.getItem("messages");
 
     if (savedBlogs) setBlogs(JSON.parse(savedBlogs));
     if (savedMessages) setMessages(JSON.parse(savedMessages));
@@ -164,29 +18,20 @@ export default function Home() {
 
   return (
     <MainLayout>
-      <div className="container mx-auto p-4">
-        <Row gutter={16}>
-          <Col span={8}>
-            <Card bordered={false} className="bg-blue-50 dark:bg-gray-800">
-              <p className="text-gray-500 dark:text-gray-300">Total Blogs</p>
-              <p className="text-3xl font-bold">{blogs.length}</p>
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card bordered={false} className="bg-green-50 dark:bg-gray-800">
-              <p className="text-gray-500 dark:text-gray-300">Total Messages</p>
-              <p className="text-3xl font-bold">{messages.length}</p>
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card bordered={false} className="bg-purple-50 dark:bg-gray-800">
-              <p className="text-gray-500 dark:text-gray-300">Last Updated</p>
-              <p className="text-3xl font-bold">{blogs.length > 0 ? moment(blogs[0].date).fromNow() : 'N/A'}</p>
-            </Card>
-          </Col>
-        </Row>
+      <div className="flex flex-col items-center justify-center h-64 space-y-4 px-4 text-center">
+        <h1 className="text-4xl font-semibold">👋 Hi, I'm Olusegun Ajibola!</h1>
+        <h2 className="text-2xl text-gray-700 dark:text-gray-300">
+          A passionate software developer, data scientist and tech enthusiast.
+        </h2>
+        <h3 className="text-lg text-gray-600 dark:text-gray-300">
+          🎯 FrontEnd Web Dev | Data Scientist | Machine Learning Engineer |
+          Data Analyst
+        </h3>
+        <h3 className="text-lg text-gray-600 dark:text-gray-300">
+          Welcome to my personal portfolio! Here, you can explore my latest
+          blogs and get in touch with me.
+        </h3>
       </div>
     </MainLayout>
   );
 }
-
