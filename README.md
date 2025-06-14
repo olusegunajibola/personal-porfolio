@@ -104,6 +104,22 @@ The goal is familiarize oneself with the much needed practical knowledge in beco
 - **/components**: Reusable components used across the application.
 - **/public**: Static files such as images and logos.
 
+## Deployment with vercel
+The project can be easily view via the links below:
+- For admin login and dashboard: https://portfolio-sepia-two-79.vercel.app/admin/login
+- For frontend: https://portfolio-sepia-two-79.vercel.app/
+
+Now, we will briefly discuss how the two above were made possible.
+
+The first step is to create an account at https://vercel.com/. Connect with your GitHub account.
+Via the CLI, run the following:
+```bash
+npm i -g vercel
+vercel --prod
+vercel login
+vercel # In order to deploy something, run `vercel`.
+```
+
 ## Contributing
 Contributions are welcome! Please follow these steps:
 
