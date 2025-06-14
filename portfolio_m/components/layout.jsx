@@ -72,7 +72,7 @@ export default function MainLayout({ children }) {
           <a href="mailto:olusegun.ajibola@aims-cameroon.org">
             <img src="/images/gmail.svg.png" alt="Gmail" className="w-6 h-6 object-contain" />
           </a>
-          <a href="https://github.com/olusegunajibola">
+          <a href="https://github.com/olusegunajibola" target="_blank" rel="noopener noreferrer">
             <img src="/images/github-mark-white.png" alt="GitHub" className="w-6 h-6 object-contain" />
           </a>
         </div>
