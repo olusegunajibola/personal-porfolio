@@ -3,7 +3,8 @@
 ## Introduction
 
 In this project, a personal portfolio with an admin page is being setup. This fully responsive personal portfolio website is built with Next.js, Tailwind CSS, and Ant Design. This project features an admin panel for managing content and a public-facing interface to showcase the profile, blog posts, and contact information.
-The goal is familiarize oneself with the much needed practical knowledge in becoming a a frontend web developer.
+
+The goal is familiarize oneself with the much needed practical knowledge in becoming a frontend web developer.
 
 ## Features
 
